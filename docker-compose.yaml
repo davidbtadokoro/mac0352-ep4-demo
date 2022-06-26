@@ -1,0 +1,14 @@
+version: "3.8"
+services:
+  client:
+    build: ./client
+    container_name: client
+    tty: true
+  evilserver:
+    build: ./evilserver
+    container_name: evilserver
+    tty: true
+  dataserver:
+    image: alpine:3.16
+    container_name: dataserver
+    tty: true
