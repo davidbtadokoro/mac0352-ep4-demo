@@ -1,0 +1,21 @@
+# Criação das imagens e execução dos contâiners:
+docker system prune -a \
+&& docker-compose build --no-cache \
+&& docker-compose up
+
+# Entrando nos contâiners:
+docker exec -it evilserver /bin/sh
+docker exec -it client /bin/sh
+docker exec -it internalservice /bin/sh
+
+# Preparando o prompt:
+source /etc/profile && clear
+
+# Cliente:
+./ftp evilserver -p
+
+# Servidor Malicioso:
+python3 evilserver.py
+
+# Serviço Interno:
+nc -lnvp 11211
