@@ -8,7 +8,7 @@ services:
     build: ./evilserver
     container_name: evilserver
     tty: true
-  dataserver:
-    image: alpine:3.16
-    container_name: dataserver
+  internalservice:
+    build: ./internalservice
+    container_name: internalservice
     tty: true
