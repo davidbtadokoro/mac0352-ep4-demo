@@ -15,11 +15,11 @@ class MyTCPHandler(socketserver.StreamRequestHandler):
 
        self.data = self.rfile.readline().strip().decode()
        print(self.data, file=sys.stderr)
-       self.request.sendall(b'227 Entering Passive Mode (' + internalservice_ip.encode('utf-8') + b',43,203)\r\n')
+       self.request.sendall(b'227 Entering Passive Mode (' + internalservice_ip.encode('utf-8') + b',0,22)\r\n')
 
        self.data = self.rfile.readline().strip().decode()
        print(self.data, file=sys.stderr)
-       self.request.sendall(b'227 Entering Passive Mode (' + internalservice_ip.encode('utf-8') + b',43,203)\r\n')
+       self.request.sendall(b'227 Entering Passive Mode (' + internalservice_ip.encode('utf-8') + b',0,22)\r\n')
 
        self.data = self.rfile.readline().strip().decode()
        print(self.data, file=sys.stderr)
