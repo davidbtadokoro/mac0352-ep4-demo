@@ -10,8 +10,8 @@ RUN apk add --update python3 \
     && apk --update add py-pip \
     && pip install requests
 
-# Transferindo código fonte do servidor malicioso
-COPY ./evilserver.py /usr/local/
+# Criando o diretório que terá o código malicioso
+RUN mkdir /usr/local/malicious-code
 
 # Definindo diretório onde a demo ocorrerá
-WORKDIR /usr/local/
+WORKDIR /usr/local/malicious-code

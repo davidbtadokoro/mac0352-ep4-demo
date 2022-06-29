@@ -1,4 +1,4 @@
-# CRIANDO AS IMAGENS E EXECUTANDO OS CONTÂINERS
+# CRIANDO AS IMAGENS E EXECUTANDO OS CONTÂINERS (antes da apresentação)
 
 ## Criação das imagens e execução dos contâiners:
 docker system prune -a \
@@ -15,7 +15,7 @@ source /etc/profile && clear
 ------------------------------------------------
 ------------------------------------------------
 
-# DEMONSTRANDO O ATAQUE
+# DEMONSTRANDO O ATAQUE (ACERTANDO E ERRANDO PALPITE)
 
 ## Cliente:
 ./ftp --version
@@ -29,16 +29,18 @@ nc -lnvp 22
 ------------------------------------------------
 ------------------------------------------------
 
-# DEMONSTRANDO O PATCH
+# DEMONSTRANDO O PATCH (ACERTANDO E ERRANDO PALPITE)
 
-# Cliente:
-cd ../inetutils-2.2 \
+## Cliente:
+cd ../../inetutils-2.2 \
+&& ./ftp --version \
 && ./ftp evilserver -p
 
-# Servidor Malicioso:
+## Servidor Malicioso:
+fuser -k 21/tcp
 python3 evilserver.py
 
-# Serviço Interno:
+## Serviço Interno:
 nc -lnvp 22
 ------------------------------------------------
 ------------------------------------------------

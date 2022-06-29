@@ -1,14 +1,31 @@
 version: "3.8"
+
 services:
+
   client:
     build: ./client
     container_name: client
+    networks:
+      - private
+      - public
     tty: true
+
   evilserver:
     build: ./evilserver
     container_name: evilserver
+    networks:
+      - public
+    volumes:
+      - ./evilserver/malicious-code:/usr/local/malicious-code
     tty: true
+
   internalservice:
     build: ./internalservice
     container_name: internalservice
+    networks:
+      - private
     tty: true
+
+networks:
+  private:
+  public:
